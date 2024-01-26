@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "twitter-clone-api"
+version = "0.1.0"
+description = "Twitter clone API using Python"
+authors = ["dtalay"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+uvicorn = "^0.27.0"
+fastapi = "^0.109.0"
+pydantic = "^2.5.3"
+sqlalchemy = "^2.0.25"
+psycopg2-binary = "^2.9.9"
+sqlalchemy-utils = "^0.41.1"
+alembic = "^1.13.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

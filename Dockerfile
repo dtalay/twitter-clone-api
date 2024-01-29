@@ -26,10 +26,18 @@ COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 #
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
+
+
 #
-COPY ./src /app/src
+COPY entrypoint.sh entrypoint.sh
+COPY wait-for-it.sh wait-for-it.sh
+COPY alembic.ini alembic.ini
+COPY ./src src
+COPY ./migration migration
+
+
 
 EXPOSE 8000
 
 #
-CMD ["uvicorn", "src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["/app/entrypoint.sh"]

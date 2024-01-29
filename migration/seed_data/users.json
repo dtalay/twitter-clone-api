@@ -1,0 +1,14 @@
+[
+  {
+    "username": "user_gandalf",
+    "password": "secret123",
+    "created_at": "2024-01-29T09:46:28.660Z",
+    "updated_at": "2024-01-29T09:46:28.660Z"
+  },
+  {
+    "username": "user_frodo",
+    "password": "secret123",
+    "created_at": "2024-01-29T09:46:28.660Z",
+    "updated_at": "2024-01-29T09:46:28.660Z"
+  }
+]

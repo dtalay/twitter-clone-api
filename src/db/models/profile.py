@@ -4,14 +4,11 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql.expression import null
 from sqlalchemy_utils import EmailType
 
-
 from ..db_setup import Base
 from .mixins import Timestamp
 
 
-
 class Profile(Timestamp, Base):
-
     __tablename__ = "profiles"
 
     id = Column(Integer, primary_key=True, index=True)

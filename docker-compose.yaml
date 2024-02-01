@@ -24,7 +24,22 @@ services:
     depends_on:
       - db
     environment:
-        DATABASE_URL: postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@db:5432/$POSTGRES_DB
+      DATABASE_URL: postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@db:5432/$POSTGRES_DB
+
+  migration:
+    restart: no
+
+    build:
+      context: .
+      dockerfile: Migration.Dockerfile
+    volumes:
+      - ./alembic:/app/alembic
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@db:5432/$POSTGRES_DB
+    profiles:
+      - migration
 
   pgadmin:
     container_name: pgadmin
@@ -38,4 +53,4 @@ services:
       - db
 
 volumes:
-    postgres_data:
+  postgres_data:

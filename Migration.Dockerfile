@@ -29,8 +29,7 @@ RUN pip install --no-cache-dir --upgrade -r /opt/project/requirements.txt
 
 
 #
-COPY entrypoint.sh entrypoint.sh
-COPY wait-for-it.sh wait-for-it.sh
+
 COPY alembic.ini alembic.ini
 COPY ./src src
 COPY ./migration migration
@@ -39,7 +38,5 @@ COPY ./migration migration
 
 
 
-EXPOSE 8000
 
-#
-CMD ["python3", "src/main.py"]
+CMD ["alembic", "upgrade", "head"]
